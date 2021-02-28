@@ -11,7 +11,7 @@ import java.util.*
 class OutgoingRestClient {
 
     val client: WebClient = WebClient.builder()
-            .baseUrl("http://localhost:9090/")
+            .baseUrl("http://client-service:9090/")
             .build()
 
     fun makeRequest() : Mono<UserId> {
