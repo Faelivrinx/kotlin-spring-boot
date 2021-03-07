@@ -17,6 +17,7 @@ services:
     ports:
       - "25826:25826"
       - "5044:5044"
+      - "9099:9099"
     volumes:
       - ./logstash:/usr/share/logstash/pipeline:ro                # Pipeline configuration
     restart: on-failure
@@ -43,15 +44,15 @@ services:
     depends_on:
       - logstash
 
-  manager-service:
-    image: manager:0.0.1-SNAPSHOT
+  task-service:
+    image: task-service:0.0.1-SNAPSHOT
     ports:
       - "8080:8080"
     labels:
       collect_logs_with_filebeat: "true"
       decode_log_event_to_json_object: "true"
-  client-service:
-    image: client:0.0.1-SNAPSHOT
+  reports-service:
+    image: reports-service:0.0.1-SNAPSHOT
     ports:
       - "9090:9090"
     labels:

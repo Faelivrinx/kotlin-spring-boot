@@ -15,7 +15,7 @@
 	</properties>
 
 	<modules>
-		<module>manager</module>
-		<module>client</module>
+		<module>task-service</module>
+		<module>reports-service</module>
 	</modules>
 </project>
